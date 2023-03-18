@@ -1,20 +1,35 @@
 # List of methods available on sequelize-hierachy
 
 createChild(values): Creates a new child entity and adds it to the hierarchy.
+
 getChildren(options): Retrieves all the child entities for a given parent entity.
+
 getChild(options): Retrieves a specific child entity for a given parent entity.
+
 setParent(parent): Sets the parent of an entity to the specified parent entity.
+
 getParent(): Retrieves the parent entity for a given child entity.
+
 getRoot(): Retrieves the root entity for a given entity.
+
 getDescendants(options): Retrieves all the descendant entities for a given parent entity.
+
 getAncestors(options): Retrieves all the ancestor entities for a given child entity.
+
 isDescendantOf(other): Checks whether an entity is a descendant of another entity.
+
 isAncestorOf(other): Checks whether an entity is an ancestor of another entity.
+
 getSiblings(options): Retrieves all the sibling entities for a given entity.
+
 getPrevSiblings(options): Retrieves all the previous sibling entities for a given entity.
+
 getNextSiblings(options): Retrieves all the next sibling entities for a given entity.
+
 getLevel(): Retrieves the level of an entity in the hierarchy.
+
 getHierarchy(options): Retrieves the entire hierarchy, starting from the root entity.
+
 These methods allow you to perform various operations on the hierarchical data, such as creating new entities, retrieving parent and child entities, navigating the hierarchy, and more
 
 # here's a list of the options available for some of the methods in Sequelize-hierarchy:
