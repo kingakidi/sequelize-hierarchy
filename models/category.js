@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
   Category.init(
     {
       name: DataTypes.STRING,
+      hierarchyLevel: {
+        type: DataTypes.INTEGER,
+      },
+      parentId: {
+        type: DataTypes.INTEGER,
+      },
     },
     {
       sequelize,

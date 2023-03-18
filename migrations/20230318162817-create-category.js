@@ -12,6 +12,12 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
+      parentId: {
+        type: Sequelize.INTEGER,
+      },
+      hierarchyLevel: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

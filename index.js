@@ -3,17 +3,17 @@ const app = express();
 
 const { User, Category } = require("./models");
 
-app.get("/hi", async function (req, res) {
+app.get("/login", async function (req, res) {
   const createCategory = await Category.create({
     name: `ICT`,
   });
 
-  if (createCategory) {
-    const getUser = await User.findAll();
+  const category = await Category.findAll();
 
+  if (createCategory) {
     res.send({
       working: true,
-      data: getUser,
+      data: category,
     });
   }
 });
