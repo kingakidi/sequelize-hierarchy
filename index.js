@@ -9,10 +9,12 @@ app.get("/login", async function (req, res) {
   });
 
   const category = await Category.findOne({ where: { name: "ICT" } });
-  const parent = await category.getParent();
-  const children = await category.getChildren();
-  const ancestor = await category.getAncestors();
-  const addChild = await category.addChild({ name: "Programming" });
+
+  const root = await Category.findOne({ where: { name: "Root" } });
+  // find and create
+  const child1 = await root.createChild({ name: "this is another child 1" });
+  const child2 = await root.createChild({ name: "Child here is her " });
+  const grandchild = await child1.createChild({ name: "Grandchild" });
 
   // const descendents = await category.getDescendents();
 
@@ -20,11 +22,9 @@ app.get("/login", async function (req, res) {
     res.send({
       working: true,
       category,
-      parent,
-      children,
-      ancestor,
-      addChild,
-      // descendents,
+      root,
+      child1,
+      child2,
     });
   }
 });
