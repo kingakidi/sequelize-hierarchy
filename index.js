@@ -8,12 +8,23 @@ app.get("/login", async function (req, res) {
     name: `ICT`,
   });
 
-  const category = await Category.findAll();
+  const category = await Category.findOne({ where: { name: "ICT" } });
+  const parent = await category.getParent();
+  const children = await category.getChildren();
+  const ancestor = await category.getAncestors();
+  const addChild = await category.addChild({ name: "Programming" });
+
+  // const descendents = await category.getDescendents();
 
   if (createCategory) {
     res.send({
       working: true,
-      data: category,
+      category,
+      parent,
+      children,
+      ancestor,
+      addChild,
+      // descendents,
     });
   }
 });
